@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Météo procédurale</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Appli Météo</h1>
+        <p>Entrer les coordonnées géographiquer (latitude et longitude):</p>
+        <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" class="form-control">
+        </div>
+        <div class="form-group mt-5">
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" class="form-control">
+        </div>
+        <!-- Appeler une méthode avec la propriété onClick -->
+        <button class="btn btn-primary my-3 form-control" onclick="getWeather()">Afficher la météo</button>
+
+        <div id="result" class="mt-3"></div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
