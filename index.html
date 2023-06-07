@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-5">
         <h1>Appli Météo</h1>
-        <p>Entrer les coordonnées géographiquer (latitude et longitude):</p>
+        <h2 class="h4 mt-5">Entrer les coordonnées géographique (latitude et longitude):</h2>
         <div class="form-group">
             <label for="latitude">Latitude:</label>
             <input type="text" id="latitude" class="form-control">
@@ -20,6 +20,12 @@
         <div class="form-group mt-5">
             <label for="longitude">Longitude:</label>
             <input type="text" id="longitude" class="form-control">
+        </div>
+
+        <h2 class="mt-5 h4">Entrer le nom de la ville:</h2>
+        <div class="form-group">
+            <label for="city">Ville:</label>
+            <input type="text" id="city" class="form-control">
         </div>
         <!-- Appeler une méthode avec la propriété onClick -->
         <button class="btn btn-primary my-3 form-control" onclick="getWeather()">Afficher la météo</button>

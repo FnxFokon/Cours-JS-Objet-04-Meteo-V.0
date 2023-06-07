@@ -7,11 +7,44 @@ function getWeather() {
     // On va récupérer les valeurs des inputs
     const latitude = document.getElementById('latitude').value;
     const longitude = document.getElementById('longitude').value;
+    const city = document.getElementById('city').value;
+    // console.log('city', city);
     // console.log('latiture', latitude);
     // console.log('longitude', longitude);
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`;
+    // const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`;
+    let url = `http://api.openweathermap.org/data/2.5/weather?`;
 
+    // if (city && latitude && longitude) { // la syntaxe = city != '' && latitude != '' && longitude != ''
+    //     url += `lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`;
+
+    // } else if (!city && latitude && longitude) {
+    //     url += `lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`;
+
+    // } else if (city) {
+    //     url += `q=${city}&appid=${apiKey}&units=metric&lang=fr`;
+
+    // } else {
+    //     alert('Veuillez remplir la ville ou les coordonnées');
+    //     return;
+    // }
+
+    // On test si tous les champs sont remplis
+
+    if (city || (latitude && longitude)) {
+        if (latitude && longitude) {
+            url += `lat=${latitude}&lon=${longitude}`;
+
+        } else {
+            url += `q=${city}`;
+        }
+
+    } else {
+        alert('Veuillez remplir la ville ou les coordonnées');
+        return;
+    }
+
+    url += `&appid=${apiKey}&units=metric&lang=fr`
     // On va faire une requ$ete ajax avec fetch
     fetch(url)
         .then(response => response.json())
@@ -36,7 +69,7 @@ function getWeather() {
 }
 
 function displayWeather(weather) {
-    console.log('weather', weather);
+    // console.log('weather', weather);
     const resultDiv = document.getElementById('result');
 
     // Création une div avec la classe card
